@@ -36,3 +36,26 @@
 `flutter_svg` - For SVG
 `lottie` - For Lottie
 `shared_preferences` - for shared prefrences
+
+## 3. Add firebase support
+
+[Firebase Setup Instructions](https://firebase.google.com/docs/flutter/setup?platform=android "Firebase Setup Instructions")
+
+1. Create project on firebase console
+2. If you have not already, install the Firebase CLI.
+   `npm install -g firebase-tools`
+3. Log into Firebase using your Google account by running the following command:
+   `firebase login`
+4. Install the FlutterFire CLI by running the following command from any directory:
+   `dart pub global activate flutterfire_cli`
+5. From your Flutter project directory, run the following command to install the core plugin and run pod:
+   `flutter pub add firebase_core`
+6. From your Flutter project directory, run the following command to ensure that your Flutter app's Firebase configuration is up-to-date:
+   `flutterfire configure`
+7. In your **lib/main.dart** file, initialize Firebase using the DefaultFirebaseOptions object exported by the configuration file:
+
+```dart
+await Firebase.initializeApp(
+ options: DefaultFirebaseOptions.currentPlatform,
+);
+```

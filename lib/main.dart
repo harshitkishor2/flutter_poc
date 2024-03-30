@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_poc/constants/string_const.dart';
+import 'package:flutter_poc/firebase_options.dart';
 import 'package:flutter_poc/helpers/shared_pref.dart';
 import 'package:flutter_poc/di/service_locator.dart' as service_locator;
 import 'package:flutter_poc/helpers/theme.dart';
@@ -18,6 +20,11 @@ globalInitializer() async {
   await service_locator.init();
   //  Initialize bloc observer
   Bloc.observer = SimpleBlocObserver();
+
+  // Initialize firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Set device orientation
   SystemChrome.setPreferredOrientations(
