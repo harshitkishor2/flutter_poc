@@ -59,3 +59,11 @@ await Firebase.initializeApp(
  options: DefaultFirebaseOptions.currentPlatform,
 );
 ```
+
+## 4. Add firebase required plugins
+
+firebase_auth - For Authentication
+cloud_firestore - For cloud firestore
+firebase_storage - For cloud Storage
+firebase_crashlytics - For Crashlytics
+firebase_analytics - For analytics
